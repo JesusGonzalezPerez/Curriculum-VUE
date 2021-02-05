@@ -1,0 +1,131 @@
+{"Curriculum" :  
+    {"AboutMe":
+        {
+            "name":"Jesús",
+            "surname":"González Pérez",
+            "address":"Granada, Peligros C/César Augusto Nº14",
+            "mail":"jesusgpeligros@gmail.com",
+            "telephone":"603236960",
+            "instagram":"https://www.instagram.com/jesugonza3/?hl=es",
+            "github":"https://github.com/JesusGonzalezPerez",
+            "linkedin":"https://www.linkedin.com/in/jesús-gonzález-pérez-324a29205/",
+            "presentation":"I am a 22 year old young man, student of web application development",
+            "presentacion":"Soy un joven de 22 años, estudiante de desarollo de aplicaciones web con grandes "
+        }
+    ,
+    "WorkExperience":[
+        {
+            "job":"Construction worker",
+            "trabajo":"Peón de obra",
+            "startDate":"02/07/2013",
+            "endDate":"10/08/2012",
+            "description":"Carry out auxiliary construction and maintenance tasks",
+            "descripcion":"Efectuar tareas auxiliares de construcción y mantenimiento de obras"
+        }
+    ],
+    "Education":[
+            {
+                "name":"Obligatory Secondary Education",
+                "nombre":"Educacion Obligatoria Secundaria",
+                "date":"27/05/2015",
+                "place":"IES Clara Campoamor, Peligros"
+            },
+            {
+                "name":"High school",
+                "nombre":"Bachillerato",
+                "date":"28/05/2019",
+                "place":"IES Virgen de las Nieves, Granada"
+            },
+            {
+                "name":"Higher Grade Web Application Development",
+                "nombre":"Grado superior Desarrollo de aplicaciones web",
+                "date":"04/03/2021",
+                "place":"IES Francisco Ayala, Granada"
+            }
+    ],
+    "Abilities":
+        {
+            "programmingLanguages":"JavaScript, Java, PHP",
+            "designLanguages": "HTML, CSS",
+            "structuredQueryLanguage": "MySQL"
+        },
+    "Projects":[
+        {
+            "img":"img/Captura.PNG",
+            "link":"https://github.com/JesusGonzalezPerez/LandingPage-JQuery",
+            "link2":"https://jesusgonzalezperez.github.io/LandingPage-JQuery/",
+            "name":"LandingPage",
+            "descripcion":"Página web de un taller de mecánica para captar la atención de los usuarios y poder convertirlos en futuros clientes",
+            "description":"Website of a mechanic workshop to capture the attention of users and be able to convert them into future customers",
+            "technologies": "HTML5, CSS3, JQuery, Bootstrap, JavaScript, Ajax, Json"
+        },
+        {
+            "img":"img/Captura2.PNG",
+            "link":"https://github.com/JesusGonzalezPerez/OMDb-API",
+            "link2":"https://jesusgonzalezperez.github.io/OMDb-API/Pelis/html/index.html",
+            "name":"MovieFinder",
+            "descripcion":"Página web que realiza una petición a una api, esta devuelve un array de objetos los cuales se maquetan ",
+            "description":"Web page that makes a request to an api, this returns an array of objects which are laid out",
+            "technologies": "HTML5, CSS3, JQuery, Bootstrap, JavaScript, Ajax"
+        },
+        {
+            "img":"img/Captura3.PNG",
+            "link":"https://github.com/JesusGonzalezPerez/Post-it",
+            "link2":"https://jesusgonzalezperez.github.io/Post-it/index.html",
+            "name":"StickyNotes",
+            "descripcion":"Página web en la que puedes crear notas en un panel, organizarlas a tu gusto y editarlas",
+            "description":"Web page where you can create notes in a panel, organize them to your liking and edit them",
+            "technologies": "HTML5, CSS3, Bootstrap, JavaScript, DOM"
+        },
+        {
+            "img":"img/Captura4.PNG",
+            "link":"https://github.com/JesusGonzalezPerez/Poke-Invaders",
+            "link2":"https://jesusgonzalezperez.github.io/Poke-Invaders/",
+            "name":"PokeInvaders",
+            "descripcion":"Juego arcade con temática pokemon, en el cual debes de matar todos los enemigos para ganar sin ser golpeado por sus ataques ",
+            "description":"Pokemon-themed arcade game, in which you must kill all the enemies to win without being hit by their attacks",
+            "technologies": "HTML5, CSS3, JavaScript, SVG"
+        }
+    ],
+    "Languages":[
+        {
+            "lenguaje":"Español",
+            "lenguage":"Spanish",
+            "level":"native",
+            "nivel":"nativo",
+            "flag":"https://norfipc.com/img/banderas/bandera-espana.png"
+        },
+        {
+            "lenguaje":"Inglés",
+            "lenguage":"English",
+            "level":"medium",
+            "nivel":"medio",
+            "flag":"https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg"
+        },   
+        {
+            "lenguaje":"Francés",
+            "lenguage":"French",
+            "level":"low",
+            "nivel":"bajo",
+            "flag":"https://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg"
+        }
+    ],
+    "References":[
+        {
+            "name":"Jorge Rodríguez",
+            "comment":"Best duo ever",
+            "comentario":"El mejor dúo de todos los tiempos"
+        },
+        {
+            "name":"Cristina López",
+            "comment":"Good mate of discord",
+            "comentario":"Buen compa de discord"
+        },
+        {
+            "name":"Jose Piñero",
+            "comment":"Best student I've ever had",
+            "comentario":"Mejor alumno que he tenido"
+        }
+    ]
+    }
+}

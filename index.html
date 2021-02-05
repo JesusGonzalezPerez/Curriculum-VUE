@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Css -->
+    <link rel="stylesheet" href="css.css">
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- Axios -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Transitiosn -->
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+</head>
+
+
+
+<body>
+
+
+    <div id="app" v-if="message.Curriculum">
+
+
+        <div v-if="loader" id="preload">
+            <img src="img/loader.gif" width="100vw" height="100vh">
+        </div>
+
+
+        <div v-else>
+            <div class="vertical-nav bg-white" id="sidebar">
+                <img v-if="ingles" id="banderaIdioma" v-on:click="cambiarIdioma"
+                    src="https://norfipc.com/img/banderas/bandera-espana.png" alt="Cambiar a español">
+                <img v-if="!ingles" id="banderaIdioma" v-on:click="cambiarIdioma"
+                    src="https://upload.wikimedia.org/wikipedia/commons/a/ae/Flag_of_the_United_Kingdom.svg"
+                    alt="Cambiar a inglés">
+                <div class="py-4 px-3 mb-4 bg-light">
+                    <div class="media d-flex align-items-center" id="marco">
+                        <img src="img/fotoPerfil.jpeg" alt="Jesús" width="65"
+                            class="mr-3 rounded-circle img-thumbnail shadow-sm">
+                        <div class="media-body">
+                            <h5 class="m-0">Jesús González Pérez</h5>
+                            <p v-if="ingles" class="font-weight-light text-muted mb-0">Web developer</p>
+                            <p v-if="!ingles" class="font-weight-light text-muted mb-0">Desarrollador web</p>
+                        </div>
+                    </div>
+                </div>
+
+                <p v-if="ingles" class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Index</p>
+                <p v-if="!ingles" class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">Índice</p>
+
+                <ul class="nav flex-column bg-white mb-0">
+                    <li class="nav-item">
+                        <a v-if="ingles" href="#AboutMe" class="nav-link text-dark font-italic">
+                            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                            About me
+                        </a>
+                        <a v-if="!ingles" href="#AboutMe" class="nav-link text-dark font-italic">
+                            <i class="fa fa-address-card mr-3 text-primary fa-fw"></i>
+                            Sobre mí
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a v-if="ingles" href="#WorkExperience" class="nav-link text-dark font-italic">
+                            <i class="fa fa-briefcase mr-3 text-primary fa-fw"></i>
+                            Work experience
+                        </a>
+                        <a v-if="!ingles" href="#WorkExperience" class="nav-link text-dark font-italic">
+                            <i class="fa fa-briefcase mr-3 text-primary fa-fw"></i>
+                            Experiencia laboral
+                        </a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a v-if="ingles" href="#Education" class="nav-link text-dark font-italic">
+                            <i class="fa fa-university mr-3 text-primary fa-fw"></i>
+                            Education
+                        </a>
+                        <a v-if="!ingles" href="#Education" class="nav-link text-dark font-italic">
+                            <i class="fa fa-university mr-3 text-primary fa-fw"></i>
+                            Educación
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a v-if="ingles" href="#Abilities" class="nav-link text-dark font-italic">
+                            <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
+                            Abilities
+                        </a>
+                        <a v-if="!ingles" href="#Abilities" class="nav-link text-dark font-italic">
+                            <i class="fa fa-line-chart mr-3 text-primary fa-fw"></i>
+                            Habilidades
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a v-if="ingles" href="#Projects" class="nav-link text-dark font-italic">
+                            <i class="fa fa-tasks mr-3 text-primary fa-fw"></i>
+                            Projects
+                        </a>
+                        <a v-if="!ingles" href="#Projects" class="nav-link text-dark font-italic">
+                            <i class="fa fa-tasks mr-3 text-primary fa-fw"></i>
+                            Proyectos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a v-if="ingles" href="#Languages" class="nav-link text-dark font-italic">
+                            <i class="fa fa-flag mr-3 text-primary fa-fw"></i>
+                            Languages
+                        </a>
+                        <a v-if="!ingles" href="#Languages" class="nav-link text-dark font-italic">
+                            <i class="fa fa-flag mr-3 text-primary fa-fw"></i>
+                            Lenguajes
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a v-if="ingles" href="#References" class="nav-link text-dark font-italic">
+                            <i class="fa fa-comments mr-3 text-primary fa-fw"></i>
+                            References
+                        </a>
+                        <a v-if="!ingles" href="#References" class="nav-link text-dark font-italic">
+                            <i class="fa fa-comments mr-3 text-primary fa-fw"></i>
+                            Referencias
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a v-if="ingles" href="#Contact" class="nav-link text-dark font-italic">
+                            <i class="fa fa-address-book mr-3 text-primary fa-fw"></i>
+                            Contact
+                        </a>
+                        <a v-if="!ingles" href="#Contact" class="nav-link text-dark font-italic">
+                            <i class="fa fa-address-book mr-3 text-primary fa-fw"></i>
+                            Contacto
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <h3>CURRICULUM</h3>
+
+
+            <transition appear appear-active-class="animated  zoomInRight">
+                <div class="contenedor">
+                    <h4><a name="AboutMe" v-if="ingles">About me</a></h4>
+                    <h4><a name="AboutMe" v-if="!ingles">Sobre mí</a></h4>
+                    <div class="subcontenedor">
+                        <p v-if="ingles">Name: <span>{{message.Curriculum.AboutMe.name}}</span></p>
+                        <p v-if="!ingles">Nombre: <span>{{message.Curriculum.AboutMe.name}}</span></p>
+
+                        <p v-if="ingles">Surname: <span>{{message.Curriculum.AboutMe.surname}}</span></p>
+                        <p v-if="!ingles">Apellidos: <span>{{message.Curriculum.AboutMe.surname}}</span></p>
+
+                        <p v-if="ingles">Address: <span>{{message.Curriculum.AboutMe.address}}</span></p>
+                        <p v-if="!ingles">Dirección: <span>{{message.Curriculum.AboutMe.address}}</span></p>
+
+                        <p v-if="ingles">Mail: <span>{{message.Curriculum.AboutMe.mail}}</span></p>
+                        <p v-if="!ingles">Correo: <span>{{message.Curriculum.AboutMe.mail}}</span></p>
+
+                        <p v-if="ingles">Telephone: <span>{{message.Curriculum.AboutMe.telephone}}</span></p>
+                        <p v-if="!ingles">Teléfono: <span>{{message.Curriculum.AboutMe.telephone}}</span></p>
+
+                        <p v-if="ingles">Presentation: <span>{{message.Curriculum.AboutMe.presentation}}</span></p>
+                        <p v-if="!ingles">Presentación: <span>{{message.Curriculum.AboutMe.presentacion}}</span></p>
+
+                        <p v-if="ingles">Social Networks:</p>
+                        <p v-if="!ingles">Redes Sociales:</p>
+                        <ul>
+                            <li><a :href="message.Curriculum.AboutMe.instagram"><i class="fa fa-instagram"
+                                        aria-hidden="true"></i> Instagram</a></li>
+                            <li><a :href="message.Curriculum.AboutMe.github"><i class="fa fa-github-square"
+                                        aria-hidden="true"></i> GitHub</a></li>
+                            <li><a :href="message.Curriculum.AboutMe.linkedin"><i class="fa fa-linkedin-square"
+                                        aria-hidden="true"></i> Linkedin</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </transition>
+
+
+
+            <transition appear appear-active-class="animated  zoomInRight">
+                <div class="contenedor">
+                    <h4><a name="WorkExperience" v-if="ingles">Work experience</a></h4>
+                    <h4><a name="WorkExperience" v-if="!ingles">Experiencia laboral</a></h4>
+                    <div class="subcontenedor" name="WorkExperience">
+                        <div class="trabajo" v-for="el in message.Curriculum.WorkExperience">
+                            <p v-if="ingles">Job: <span>{{el.job}}</span></p>
+                            <p v-if="!ingles">Trabajo: <span>{{el.trabajo}}</span></p>
+
+                            <p v-if="ingles">Start date: <span>{{el.startDate}}</span></p>
+                            <p v-if="!ingles">Fecha de inicio: <span>{{el.startDate}}</span>
+                            </p>
+
+                            <p v-if="ingles">End date: <span>{{el.endDate}}</span></p>
+                            <p v-if="!ingles">Fecha fin: <span>{{el.endDate}}</span></p>
+
+                            <p v-if="ingles">Description: <span>{{el.description}}</span></p>
+                            <p v-if="!ingles">Descripción: <span>{{el.descripcion}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+
+
+
+            <transition appear appear-active-class="animated  zoomInRight">
+                <div class="contenedor">
+                    <h4><a name="Education" v-if="ingles">Education</a></h4>
+                    <h4><a name="Education" v-if="!ingles">Educación</a></h4>
+                    <div class="subcontenedor" name="Education">
+                        <table border="1">
+                            <tr>
+                                <th v-if="ingles">Title</th>
+                                <th v-if="!ingles">Título</th>
+                                <th v-if="ingles">Date</th>
+                                <th v-if="!ingles">Fecha</th>
+                                <th v-if="ingles">Place</th>
+                                <th v-if="!ingles">Lugar</th>
+                            </tr>
+                            <tr v-for="el in message.Curriculum.Education">
+                                <td>
+                                    <p v-if="ingles">{{el.name}}</p>
+                                    <p v-if="!ingles">{{el.nombre}}</p>
+                                </td>
+                                <td>
+                                    <p v-if=>{{el.date}}</p>
+                                </td>
+                                <td>
+                                    <p>{{el.place}}</p>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+            </transition>
+
+
+
+            <transition appear appear-active-class="animated  zoomInRight">
+                <div class="contenedor">
+                    <h4><a name="Abilities" v-if="ingles">Abilities</a></h4>
+                    <h4><a name="Abilities" v-if="!ingles">Habilidades</a></h4>
+                    <div class="subcontenedor">
+                        <p v-if="ingles">Programming languages:
+                            <span>{{message.Curriculum.Abilities.programmingLanguages}}</span>
+                        </p>
+                        <p v-if="!ingles">Lenguajes de programación:
+                            <span>{{message.Curriculum.Abilities.programmingLanguages}}</span>
+                        </p>
+
+                        <p v-if="ingles">Design languages: <span>{{message.Curriculum.Abilities.designLanguages}}</span>
+                        </p>
+                        <p v-if="!ingles">Lenguajes de diseño:
+                            <span>{{message.Curriculum.Abilities.designLanguages}}</span>
+                        </p>
+
+                        <p v-if="ingles">Structured query languages:
+                            <span>{{message.Curriculum.Abilities.structuredQueryLanguage}}</span>
+                        </p>
+                        <p v-if="!ingles">Lenguajes de consulta estructurada:
+                            <span>{{message.Curriculum.Abilities.structuredQueryLanguage}}</span>
+                        </p>
+                    </div>
+                </div>
+            </transition>
+
+
+
+            <transition appear appear-active-class="animated  zoomInRight">
+                <div class="contenedor">
+                    <h4><a name="Projects" v-if="ingles">Projects</a></h4>
+                    <h4><a name="Projects" v-if="!ingles">Proyectos</a></h4>
+                    <br>
+                    <div id="subcontenedor">
+                        <div class="card-columns d-flex justify-content-around">
+                            <div class="card" v-on:click="openModal(index)"
+                                v-for="(el,index) in message.Curriculum.Projects" v-bind:key="el.name+index">
+                                <img class="card-img-top" :src="el.img" alt="">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{el.name}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+
+
+
+            <transition appear appear-active-class="animated  zoomInRight">
+                <div class="contenedor">
+                    <h4><a name="Languages" v-if="ingles">Languages</a></h4>
+                    <h4><a name="Languages" v-if="!ingles">Lenguajes</a></h4>
+                    <div class="subcontenedor" id="divIdiomas" v-for="el in message.Curriculum.Languages">
+                        <div class="idioma">
+                            <p v-if="ingles"><img id="bandera" :src="el.flag"><span> {{el.lenguage}}</span></p>
+                            <p v-if="!ingles"><img id="bandera" :src="el.flag"><span> {{el.lenguaje}}</span></p>
+                            <p v-if="ingles">Level: <span>{{el.level}}</span></p>
+                            <p v-if="!ingles">Nivel: <span>{{el.nivel}}</span></p>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+
+
+
+            <transition appear appear-active-class="animated  zoomInRight">
+                <div class="contenedor">
+                    <h4><a name="References" v-if="ingles">References</a></h4>
+                    <h4><a name="References" v-if="!ingles">Referencias</a></h4>
+                    <br>
+                    <div class="subcontenedor" id="divReferences">
+                        <div class="comentario" v-for="el in message.Curriculum.References">
+                            <p v-if="ingles">
+                                {{el.name}}<span>{{el.comment}}</span>
+                            </p>
+                            <p v-if="!ingles">
+                                {{el.name}}<span>{{el.comentario}}</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </transition>
+
+
+
+            <transition appear appear-active-class="animated  zoomInRight">
+                <div class="contenedor">
+                    <h4><a name="Contact" v-if="ingles">Contact</a></h4>
+                    <h4><a name="Contact" v-if="!ingles">Contacto</a></h4>
+                    <div v-if="ingles" class="subcontenedor">
+                        <label for="">Name</label>
+                        <input type="text" name="Name" id="nameForm" class="form-control" placeholder=""
+                            aria-describedby="helpId">
+
+                        <label for="">Surname</label>
+                        <input type="text" name="Email" id="emailForm" class="form-control" aria-describedby="helpId">
+
+                        <label for="">Mail</label>
+                        <input type="password" name="Password" id="passForm1" class="form-control"
+                            placeholder="example@example.example" aria-describedby="helpId">
+
+                        <label for="">Telephone</label>
+                        <input type="password" name="Password" id="passForm2" class="form-control" placeholder=""
+                            aria-describedby="helpId">
+
+                        <label>Comment</label>
+                        <textarea></textarea>
+                    </div>
+                    <div v-if="!ingles" class="subcontenedor">
+                        <label for="">Nombre</label>
+                        <input type="text" name="Name" id="nameForm" class="form-control" placeholder=""
+                            aria-describedby="helpId">
+
+                        <label for="">Apellidos</label>
+                        <input type="text" name="Email" id="emailForm" class="form-control" aria-describedby="helpId">
+
+                        <label for="">Correo electrónico</label>
+                        <input type="password" name="Password" id="passForm1" class="form-control"
+                            placeholder="example@example.example" aria-describedby="helpId">
+
+                        <label for="">Teléfono</label>
+                        <input type="password" name="Password" id="passForm2" class="form-control" placeholder=""
+                            aria-describedby="helpId">
+
+                        <label>Comentario</label>
+                        <textarea></textarea>
+                    </div>
+                </div>
+            </transition>
+
+
+
+            <!-- ModalProject -->
+            <div class="modal" id="model" tabindex="-1" role="dialog" aria-labelledby="modelMovie" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 id="modalTitle">Descripción</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="modal" class="form-group">
+                                <div id=poster>
+                                    <img id="imgModal">
+                                </div>
+                                <div id="datos">
+                                    <h5 v-if="ingles">Description</h5>
+                                    <h5 v-if="!ingles">Descripción</h5>
+                                    <p v-if="ingles" id="description"></p>
+                                    <p v-if="!ingles" id="descripcion"></p>
+                                    <h5 v-if="ingles">Technologies used</h5>
+                                    <h5 v-if="!ingles">Tecnologías empleadas</h5>
+                                    <p id="tecno"></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a v-if="ingles" target="_blank" class="btn btn-outline-dark" role="button" id="link2">Link to
+                                production</a>
+                            <a v-if="!ingles" target="_blank" class="btn btn-outline-dark" role="button" id="link2">Enlace a
+                                producción</a>
+                            <a v-if="ingles" target="_blank" class="btn btn-outline-dark" role="button" id="link1">Link to
+                                repository</a>
+                            <a v-if="!ingles" target="_blank" class="btn btn-outline-dark" role="button" id="link1">Enlace a
+                                repositorio</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <script src="index.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
