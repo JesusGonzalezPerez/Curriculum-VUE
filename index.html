@@ -17,6 +17,9 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- Transitiosn -->
     <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+
+    <script src="https://unpkg.com/vue-ui-preloader"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/vue-ui-preloader/dist/loader.css">   
 </head>
 
 
@@ -26,12 +29,12 @@
 
     <div id="app" v-if="message.Curriculum">
 
-
-        <div v-if="loader" id="preload">
-            <img src="img/loader.gif" width="100vw" height="100vh">
+  
+        <div v-if="prealoading">
+            <loader  object="#ff0095" color1="#ff4000" color2="#daff24" size="10" speed="3.5" bg="#343a40" objectbg="#999793" opacity="80" disableScrolling="true" name="box"></loader>
         </div>
 
-
+   
         <div v-else>
             <div class="vertical-nav bg-white" id="sidebar">
                 <img v-if="ingles" id="banderaIdioma" v-on:click="cambiarIdioma"
@@ -354,18 +357,18 @@
                     </div>
                     <div v-if="!ingles" class="subcontenedor">
                         <label for="">Nombre</label>
-                        <input type="text" class="form-control" placeholder=""
+                        <input type="text" name="Name" id="nameForm" class="form-control" placeholder=""
                             aria-describedby="helpId">
 
                         <label for="">Apellidos</label>
-                        <input type="text" class="form-control" aria-describedby="helpId">
+                        <input type="text" name="Email" id="emailForm" class="form-control" aria-describedby="helpId">
 
                         <label for="">Correo electrónico</label>
-                        <input type="text" class="form-control"
+                        <input type="password" name="text" id="passForm1" class="form-control"
                             placeholder="example@example.example" aria-describedby="helpId">
 
                         <label for="">Teléfono</label>
-                        <input type="number" class="form-control" placeholder=""
+                        <input type="password" name="number" id="passForm2" class="form-control" placeholder=""
                             aria-describedby="helpId">
 
                         <label>Comentario</label>
@@ -374,7 +377,7 @@
                 </div>
             </transition>
 
-
+       
 
             <!-- ModalProject -->
             <div class="modal" id="model" tabindex="-1" role="dialog" aria-labelledby="modelMovie" aria-hidden="true">
@@ -415,11 +418,13 @@
                     </div>
                 </div>
             </div>
-
-
+          
         </div>
 
-    </div>
+
+           
+
+    </div> 
 
 
     <script src="index.js"></script>

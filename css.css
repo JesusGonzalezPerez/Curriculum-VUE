@@ -192,17 +192,6 @@ textarea{
     word-break: break-all;
 }
 
-#preload{
-    position: absolute;
-    z-index: 90;
-    width: 100vw;
-    height: 100vh;
-}
-#preload img{
-    width: 100%;
-    height: 100%;
-}
-
 
 @media (max-width: 900px) {
     html{
